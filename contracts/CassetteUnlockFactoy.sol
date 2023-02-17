@@ -29,9 +29,11 @@ contract CassetteUnlockFactory {
         IPublicLockV12 lock = IPublicLockV12(
             unlock.createUpgradeableLockAtVersion(data, 12)
         );
-        lock.renounceLockManager();
+
         lock.setOwner(user);
         lock.setLockMetadata(_name, _symbol, _baseTokenURI);
+        lock.addLockManager(user);
+        lock.renounceLockManager();
 
         emit LockDeployed(address(lock), msg.sender, user);
 

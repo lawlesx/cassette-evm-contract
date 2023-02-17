@@ -34,7 +34,7 @@ describe("CassetteUnlockFactory", function () {
         ]
       );
   
-      const transaction = await cassetteUnlockFactory.deployLock('0x3D02B87ae906F1D6f130832f67E5c10C9f869205', params, "lol", "LOL", 'ipfs://bafybeifrnutuq4zdrzg7zyxwxk2qhvmybyvz43tg3h7bequ5ywd6ippgsi/');
+      const transaction = await cassetteUnlockFactory.deployLock('0x3D02B87ae906F1D6f130832f67E5c10C9f869205', params, 'Name', 'Symbol', 'Base URI');
       console.log('Hash',transaction.hash);
       const receipt = await transaction.wait();
 
