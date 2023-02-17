@@ -4,7 +4,7 @@ import "@unlock-protocol/contracts/dist/PublicLock/IPublicLockV12.sol";
 
 pragma solidity ^0.8.0;
 
-contract CassetteUnlockFactory {
+contract LegacyCassetteUnlockFactory {
     address unlockAddress;
 
     event LockDeployed(

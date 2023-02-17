@@ -1,23 +1,22 @@
-/**
-* @type import('hardhat/config').HardhatUserConfig
-*/
-
-require('dotenv').config();
-require("@nomiclabs/hardhat-ethers");
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import "@nomiclabs/hardhat-ethers";
+import * as dot from "dotenv";
+dot.config();
 
 const { API_URL, PRIVATE_KEY } = process.env;
 
-module.exports = {
-   solidity: {
+const config: HardhatUserConfig = {
+  solidity: {
       version: "0.8.17",
       settings: {
-        optimizer: {
-          enabled: true,
-          runs: 200
-        }
+         optimizer: {
+            enabled: true,
+            runs: 200
+         }
       }
    },
-   defaultNetwork: "polygonMumbai",
+   defaultNetwork: "hardhat",
    networks: {
       hardhat: {},
       polygonMumbai: {
@@ -25,4 +24,6 @@ module.exports = {
           accounts: [`0x${PRIVATE_KEY}`]
       }
    },
-}
+};
+
+export default config;
